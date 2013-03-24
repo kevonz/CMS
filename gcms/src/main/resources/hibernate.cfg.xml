@@ -6,6 +6,8 @@
 <hibernate-configuration>
     <session-factory>
         <mapping class="com.gcms.form.Contact" />
+        <mapping class="com.gcms.entity.User" />
+        <mapping class="com.gcms.entity.Role" />
     </session-factory>
          
 </hibernate-configuration>
