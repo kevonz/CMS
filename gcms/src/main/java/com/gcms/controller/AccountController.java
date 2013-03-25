@@ -1,10 +1,13 @@
 package com.gcms.controller;
 
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -18,10 +21,11 @@ public class AccountController {
 	private AccountService accountService;
 	
 	@RequestMapping("/account/register")
-    public String register() { 
-       
-        return "register";
-    }
+	public String register(Map<String, Object> map) {
+		map.put("user", new User());
+		map.put("userlist", accountService.listUser());
+		return "register";
+	}
 
 	@RequestMapping(value = "/account/register", method = RequestMethod.POST)
     public String register(@ModelAttribute("user")
@@ -33,8 +37,14 @@ public class AccountController {
 			user.setRole(role);
 		}
 		accountService.addUser(user);
-		
-        return "redirect:/index";
+        return "redirect:/account/register";
+    }
+	
+
+	@RequestMapping(value = "/account/delete/{userId}")
+    public String delete(@PathVariable("userId")Integer userId) {
+		accountService.removeUser(userId);
+        return "redirect:/account/register";
     }
  
 }

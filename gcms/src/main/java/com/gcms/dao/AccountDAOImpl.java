@@ -3,6 +3,8 @@
  */
 package com.gcms.dao;
 
+import java.util.List;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -24,6 +26,18 @@ public class AccountDAOImpl implements AccountDAO {
 	 */
 	public void addUser(User user) {
         sessionFactory.getCurrentSession().save(user);
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<User> listUser() {
+		return sessionFactory.getCurrentSession().createQuery("from User").list();
+	}
+
+	public void removeUser(Integer id) {
+		User user = (User) sessionFactory.getCurrentSession().load(User.class, id);
+		if(user != null){
+			sessionFactory.getCurrentSession().delete(user);
+		}
 	}
 
 }
