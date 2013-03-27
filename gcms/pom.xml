@@ -7,6 +7,7 @@
 	<properties>
 		<org.springframework-version>3.2.2.RELEASE</org.springframework-version>
 		<org.springframework.roo-version>1.0.2.RELEASE</org.springframework.roo-version>
+		<org.hibernate-version>4.1.0.Final</org.hibernate-version>
 		<org.aspectj-version>1.6.9</org.aspectj-version>
 		<org.slf4j-version>1.5.10</org.slf4j-version>
 	</properties>
@@ -65,20 +66,20 @@
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-envers</artifactId>
-			<version>3.6.8.Final</version>
+			<version>${org.hibernate-version}</version>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
-			<version>3.6.8.Final</version>
+			<version>${org.hibernate-version}</version>
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
-			<version>3.6.8.Final</version>
+			<version>${org.hibernate-version}</version>
 			<type>jar</type>
 			<scope>compile</scope>
 			<exclusions>
@@ -91,6 +92,13 @@
 					<artifactId>cglib</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-tools</artifactId>
+			<version>3.2.4.GA</version>
+			<type>jar</type>
+			<scope>compile</scope>
 		</dependency>
 		<dependency>
 			<groupId>log4j</groupId>
@@ -135,13 +143,6 @@
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-tools</artifactId>
-			<version>3.2.4.GA</version>
-			<type>jar</type>
-			<scope>compile</scope>
-		</dependency>
-		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
@@ -153,4 +154,46 @@
 		</dependency>
 
 	</dependencies>
+	
+	<repositories>
+		<repository>
+			<id>mvnrepository.com</id>
+			<url>http://mvnrepository.com/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<repository>
+			<id>repo1.maven.org</id>
+			<url>http://repo1.maven.org/</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+		<!-- <repository> <id>mvn.dev.alipay.net</id> <url>http://mvn.dev.alipay.net:8081/artifactory/repo</url> 
+			<snapshots> <enabled>false</enabled> </snapshots> </repository> -->
+		<repository>
+			<id>spring.source</id>
+			<name>SpringSource Repository</name>
+			<url>http://repo.springsource.org/release</url>
+		</repository>
+		<!-- <repository> <id>alibabatech.com</id> <url>http://code.alibabatech.com/svn/fastjson/repository</url> 
+			</repository> -->
+		<repository>
+			<id>jetty</id>
+			<url>http://download.eclipse.org/jetty/updates/jetty-bundles-8.x</url>
+		</repository>
+		<repository>
+			<id>taobao.org</id>
+			<url>http://code.taobao.org/mvn/repository</url>
+		</repository>
+		<repository>
+			<id>spring.maven.milestone</id>
+			<url>http://maven.springframework.org/milestone</url>
+		</repository>
+		<repository>
+			<id>Spark Repository</id>
+			<url>http://www.sparkjava.com/nexus/content/repositories/spark</url>
+		</repository>
+	</repositories>
 </project>

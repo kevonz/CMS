@@ -5,8 +5,9 @@ package com.gcms.dao;
 
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.gcms.entity.User;
@@ -18,7 +19,7 @@ import com.gcms.entity.User;
 @Repository
 public class AccountDAOImpl implements AccountDAO {
 	
-    @Autowired
+	@Resource
     private SessionFactory sessionFactory;
 
 	/* (non-Javadoc)
