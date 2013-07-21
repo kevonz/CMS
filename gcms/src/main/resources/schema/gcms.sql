@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50527
 File Encoding         : 65001
 
-Date: 2013-03-25 00:21:13
+Date: 2013-07-21 19:58:47
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -27,7 +27,7 @@ CREATE TABLE `contacts` (
   `email` varchar(30) DEFAULT NULL,
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of contacts
@@ -37,7 +37,10 @@ INSERT INTO `contacts` VALUES ('2', 'first', 'last', '435', 'em', '2012-11-29 22
 INSERT INTO `contacts` VALUES ('4', 'faew', 'faew', 'afw', 'awfe', '2012-11-29 23:09:26');
 INSERT INTO `contacts` VALUES ('5', '7', '8', '10', '9', '2012-12-08 16:38:58');
 INSERT INTO `contacts` VALUES ('6', 'YY', 'Y', 'UY', 'Y', '2013-01-20 20:29:03');
-INSERT INTO `contacts` VALUES ('7', 'cms', 'ui', 'te', 'em', '2013-01-20 20:43:43');
+INSERT INTO `contacts` VALUES ('8', 'v', 'd', 's', 'e', '2013-07-07 07:51:23');
+INSERT INTO `contacts` VALUES ('9', '3423', '234', '24', '24', '2013-07-07 07:51:48');
+INSERT INTO `contacts` VALUES ('10', '555', '55', '55', '55', '2013-07-19 06:58:57');
+INSERT INTO `contacts` VALUES ('11', '1', '1', '1', '1', '2013-07-19 20:55:09');
 
 -- ----------------------------
 -- Table structure for `g_role`
@@ -82,3 +85,56 @@ CREATE TABLE `g_user` (
 -- Records of g_user
 -- ----------------------------
 INSERT INTO `g_user` VALUES ('1', '1', 'aa', 'bb', '0', null, null, '0');
+
+-- ----------------------------
+-- Table structure for `t_article`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_article`;
+CREATE TABLE `t_article` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_article
+-- ----------------------------
+INSERT INTO `t_article` VALUES ('1', 'article1');
+INSERT INTO `t_article` VALUES ('2', 'article2');
+
+-- ----------------------------
+-- Table structure for `t_article_tag`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_article_tag`;
+CREATE TABLE `t_article_tag` (
+  `article_id` int(11) NOT NULL,
+  `tag_id` int(11) NOT NULL,
+  PRIMARY KEY (`article_id`,`tag_id`),
+  KEY `fk_article_has_tag_tag1_idx` (`tag_id`),
+  KEY `fk_article_has_tag_article_idx` (`article_id`),
+  CONSTRAINT `fk_article_has_tag_article` FOREIGN KEY (`article_id`) REFERENCES `t_article` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_article_has_tag_tag1` FOREIGN KEY (`tag_id`) REFERENCES `t_tag` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_article_tag
+-- ----------------------------
+INSERT INTO `t_article_tag` VALUES ('1', '1');
+INSERT INTO `t_article_tag` VALUES ('2', '1');
+INSERT INTO `t_article_tag` VALUES ('1', '2');
+
+-- ----------------------------
+-- Table structure for `t_tag`
+-- ----------------------------
+DROP TABLE IF EXISTS `t_tag`;
+CREATE TABLE `t_tag` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_tag
+-- ----------------------------
+INSERT INTO `t_tag` VALUES ('1', 'tag1');
+INSERT INTO `t_tag` VALUES ('2', 'tag2');

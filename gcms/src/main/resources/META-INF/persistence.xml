@@ -3,5 +3,7 @@
 	<persistence-unit name="gcms">
 		<class>com.gcms.entity.Role</class>
 		<class>com.gcms.entity.User</class>
+		<class>com.gcms.entity.Article</class>
+		<class>com.gcms.entity.Tag</class>
 	</persistence-unit>
 </persistence>
