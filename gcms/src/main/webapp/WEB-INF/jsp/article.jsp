@@ -15,18 +15,18 @@
 </form>
 
 <h3>Articles</h3>
-<c:if  test="${!empty userlist}">
+<c:if  test="${!empty articlelist}">
     <table class="data">
         <tr>
-            <th>Name</th>
-            <th>Email</th>
+            <th>id</th>
+            <th>Title</th>
             <th>&nbsp;</th>
         </tr>
-        <c:forEach items="${userlist}" var="user">
+        <c:forEach items="${articlelist}" var="article">
             <tr>
-                <td>${user.username}</td>
-                <td>${user.email}</td>
-                <td><a href="delete/${user.userId}">delete</a></td>
+                <td>${article.id}</td>
+                <td>${article.title}</td>
+                <td><a href="delete/${article.id}">delete</a></td>
             </tr>
         </c:forEach>
     </table>

@@ -19,7 +19,8 @@ public class ArticleController {
 
     @RequestMapping("/article/add")
     public String addArticle(Map<String, Object> map) {
-        map.put("article", new Article());
+        Article article = new Article();
+        map.put("article", article);
         map.put("articlelist", articleService.getArticles());
         return "article";
     }
