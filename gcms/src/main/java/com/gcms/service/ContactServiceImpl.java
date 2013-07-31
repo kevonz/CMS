@@ -6,8 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
  
+
 import com.gcms.dao.ContactDAO;
-import com.gcms.form.Contact;
+import com.gcms.entity.Contact;
  
 @Service
 public class ContactServiceImpl implements ContactService {

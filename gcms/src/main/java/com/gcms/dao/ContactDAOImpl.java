@@ -4,8 +4,9 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import com.gcms.form.Contact;
+import com.gcms.entity.Contact;
  
+
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
  

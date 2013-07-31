@@ -1,4 +1,4 @@
-package com.gcms.form;
+package com.gcms.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

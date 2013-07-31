@@ -2,7 +2,7 @@ package com.gcms.service;
 
 import java.util.List;
 
-import com.gcms.form.Contact;
+import com.gcms.entity.Contact;
  
 public interface ContactService {
      

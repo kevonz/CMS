@@ -2,9 +2,10 @@ package com.gcms.controller;
 
 import java.util.Map;
 
-import com.gcms.form.Contact;
+import com.gcms.entity.Contact;
 import com.gcms.service.ContactService;
  
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
